@@ -1,5 +1,5 @@
 //src/domUI.js
-export { renderWeatherCard, renderGifCard };
+export { renderWeatherCard, renderGifCard, renderError };
 
 const gifCard = document.querySelector(".gif-card");
 const weatherCard = document.querySelector(".weather-card");
@@ -12,6 +12,7 @@ const timeIcon = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox=
 
 function renderWeatherCard(weatherData) {
   weatherCard.innerHTML = "";
+  if (!weatherData) return;
 
   const title = document.createElement("h2");
   title.textContent = weatherData.city;
@@ -33,10 +34,16 @@ function renderWeatherCard(weatherData) {
 
 function renderGifCard(gifData) {
   gifCard.innerHTML = "";
+  if (!gifData) return;
 
   const img = document.createElement("img");
   img.src = gifData.url;
   img.alt = gifData.title;
 
   gifCard.appendChild(img);
+}
+
+function renderError(message) {
+  weatherCard.innerHTML = `<p class="error-message">${message}</p>`;
+  gifCard.innerHTML = "";
 }
