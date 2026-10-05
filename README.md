@@ -4,7 +4,7 @@ This project is part of the JavaScript course from **The Odin Project**. In this
 
 ## Preview
 
-![Weather App Preview](./images/preview.png)
+![Weather App Preview](./src/images/preview.png)
 
 By completing this project, I demonstrated an understanding of asynchronous JavaScript, API integration, Promises, async/await, JSON data processing, DOM manipulation, event handling, dynamic content rendering, and modular code organization. I also gained experience working with external APIs and handling asynchronous data in an interactive web application.
 
