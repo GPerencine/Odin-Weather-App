@@ -32,7 +32,7 @@ async function getGif(condition) {
 
     const gifData = {
       url: "",
-      title: data.data.title,
+      title: "Erro ao carregar GIF",
       alt: error.message,
     };
 

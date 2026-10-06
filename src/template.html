@@ -47,6 +47,24 @@
           minlength="5"
         />
         <button type="submit" id="search">Search</button>
+        <div class="units-toggle">
+          <input
+            type="radio"
+            id="celsius"
+            name="degree"
+            value="celsius"
+            checked
+          />
+          <label for="celsius">°C</label>
+
+          <input
+            type="radio"
+            id="fahrenheit"
+            name="degree"
+            value="fahrenheit"
+          />
+          <label for="fahrenheit">°F</label>
+        </div>
       </form>
       <div class="container">
         <div class="weather-card"></div>

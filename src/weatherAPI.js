@@ -17,7 +17,11 @@ async function getWeather(city) {
 
     const weatherData = {
       city: data.resolvedAddress,
-      temperature: data.currentConditions.temp,
+      temperatureCelsius: data.currentConditions.temp.toFixed(1),
+      temperatureFahrenheit: (
+        (data.currentConditions.temp * 9) / 5 +
+        32
+      ).toFixed(1),
       condition: data.currentConditions.conditions,
       dateTime: data.currentConditions.datetime,
       icon: data.currentConditions.icon,

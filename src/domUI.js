@@ -1,5 +1,5 @@
 //src/domUI.js
-export { renderWeatherCard, renderGifCard, renderError };
+export { renderWeatherCard, renderGifCard, renderError, renderLoading };
 
 const gifCard = document.querySelector(".gif-card");
 const weatherCard = document.querySelector(".weather-card");
@@ -19,7 +19,7 @@ function renderWeatherCard(weatherData) {
 
   const temp = document.createElement("p");
   temp.classList.add("info-item");
-  temp.innerHTML = `${tempIcon} <span>Temperature: ${weatherData.temperature} °C</span>`;
+  temp.innerHTML = `${tempIcon} <span>Temperature: ${renderTemperature(weatherData)} </span>`;
 
   const condition = document.createElement("p");
   condition.classList.add("info-item");
@@ -46,4 +46,19 @@ function renderGifCard(gifData) {
 function renderError(message) {
   weatherCard.innerHTML = `<p class="error-message">${message}</p>`;
   gifCard.innerHTML = "";
+}
+
+function renderLoading() {
+  weatherCard.innerHTML = "<p>Loading weather data...</p>";
+  gifCard.innerHTML = "";
+}
+
+function renderTemperature(weatherData) {
+  const degree =
+    document.querySelector("input[name='degree']:checked")?.value || "celsius";
+
+  if (degree === "celsius") {
+    return `${weatherData.temperatureCelsius} °C`;
+  }
+  return `${weatherData.temperatureFahrenheit} °F`;
 }
